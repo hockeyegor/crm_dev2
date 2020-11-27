@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngcrmdev-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ngcrmdev
+  template:
+    metadata:
+      labels:
+        component: ngcrmdev
+    spec:
+      containers:
+        - name: ngcrmdev
+          image: hockeyegor/ngcrmdev
+          ports:
+            - containerPort: 4200
